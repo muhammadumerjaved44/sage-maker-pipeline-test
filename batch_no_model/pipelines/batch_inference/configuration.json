@@ -1,0 +1,15 @@
+[
+    {
+        "Classification": "spark-defaults",
+        "Properties":{
+            "spark.executor.memory":"1g",
+            "spark.executor.memoryOverhead":"1g",
+            "spark.driver.memory":"1g",
+            "spark.driver.memoryOverhead":"1g",
+            "spark.driver.maxResultSize":"1g",
+            "spark.executor.cores":2,
+            "spark.executor.instances":1,
+            "spark.yarn.maxAppAttempts":1
+        }
+    }
+]
