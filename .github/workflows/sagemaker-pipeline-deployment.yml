@@ -36,8 +36,7 @@ jobs:
           pip install virtualenv
           virtualenv venv
           source venv/bin/activate
-          pip install "setuptools" "sagemaker>2.212.0"
-          pip install boto3
+          pip install --upgrade --force-reinstall "setuptools" "botocore>1.21.30" "boto3>1.18.30" "awscli>1.20.30" "sagemaker==2.229.0"
 
       - name: Assume Role for Staging
         run: |
