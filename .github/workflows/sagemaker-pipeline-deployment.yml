@@ -31,8 +31,18 @@ jobs:
       # Install dependencies
       - name: Install dependencies
         run: |
+          python -V
           python -m pip install --upgrade pip
-          pip install boto3
+          pip install virtualenv
+          virtualenv venv
+          source venv/bin/activate
+          pip install "setuptools" "sagemaker>2.212.0"
+
+      - name: Assume Role for Staging
+        run: |
+          echo "Assuming Staging Role..."
+          export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+          export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       # Deploy SageMaker pipeline
       - name: Deploy SageMaker Pipeline
